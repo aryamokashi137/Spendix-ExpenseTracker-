@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <h1 class="app-name">Expense Tracker</h1>
+            <div class="user-section">
+                <a href="aboutus.html" class="nav-link">About Us</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="menu-item" data-section="categories">
+                    <span class="menu-icon">📁</span>
+                    <span>Categories</span>
+                </li>
+                <li class="menu-item" data-section="expenses">
+                    <span class="menu-icon">💰</span>
+                    <span>Add Expense</span>
+                </li>
+                <li class="menu-item" data-section="budget">
+                    <span class="menu-icon">📊</span>
+                    <span>Budget</span>
+                </li>
+                <li class="menu-item" data-section="list">
+                    <span class="menu-icon">📋</span>
+                    <span>Expenses List</span>
+                </li>
+                <li class="menu-item" data-section="summary">
+                    <span class="menu-icon">📈</span>
+                    <span>Monthly Summary</span>
+                </li>
+                <li class="menu-item active" data-section="profile">
+                    <span class="menu-icon">👤</span>
+                    <span>Profile</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profile Section -->
+            <section id="profile-section" class="content-section active">
+                <h2>Profile Settings</h2>
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <span class="avatar-icon">👤</span>
+                            </div>
+                            <div class="profile-info">
+                                <h3 id="profileName">User Name</h3>
+                                <p id="profileEmail">user@example.com</p>
+                            </div>
+                        </div>
+
+                        <form id="profileForm" class="profile-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dateOfBirth">Date of Birth</label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3" placeholder="Enter your address"></textarea>
+                            </div>
+
+                            <div id="profileMessage" class="message"></div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Update Profile</button>
+                                <button type="button" id="changePasswordBtn" class="btn-secondary">Change Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

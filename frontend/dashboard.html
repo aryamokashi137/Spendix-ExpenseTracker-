@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <h1 class="app-name">Expense Tracker</h1>
+            <div class="user-section">
+                <a href="aboutus.html" class="nav-link">About Us</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <span id="userEmail" class="user-email"></span>
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-section="categories">
+                    <span class="menu-icon">📁</span>
+                    <span>Categories</span>
+                </li>
+                <li class="menu-item" data-section="expenses">
+                    <span class="menu-icon">💰</span>
+                    <span>Add Expense</span>
+                </li>
+                <li class="menu-item" data-section="budget">
+                    <span class="menu-icon">📊</span>
+                    <span>Budget</span>
+                </li>
+                <li class="menu-item" data-section="list">
+                    <span class="menu-icon">📋</span>
+                    <span>Expenses List</span>
+                </li>
+                <li class="menu-item" data-section="summary">
+                    <span class="menu-icon">📈</span>
+                    <span>Monthly Summary</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Categories Section -->
+            <section id="categories-section" class="content-section active">
+                <h2>Manage Categories</h2>
+                <div class="card">
+                    <h3>Add New Category</h3>
+                    <form id="categoryForm" class="form">
+                        <div class="form-group">
+                            <label for="categoryName">Category Name</label>
+                            <input type="text" id="categoryName" name="categoryName" required placeholder="e.g., Food, Travel, Rent">
+                        </div>
+                        <button type="submit" class="btn-primary">Add Category</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Your Categories</h3>
+                    <div id="categoriesList" class="categories-list"></div>
+                </div>
+            </section>
+
+            <!-- Add Expense Section -->
+            <section id="expenses-section" class="content-section">
+                <h2>Add New Expense</h2>
+                <div class="card">
+                    <form id="expenseForm" class="form">
+                        <div class="form-group">
+                            <label for="expenseAmount">Amount</label>
+                            <input type="number" id="expenseAmount" name="amount" required placeholder="0.00" step="0.01" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseDescription">Description</label>
+                            <input type="text" id="expenseDescription" name="description" placeholder="Optional description">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseDate">Date</label>
+                            <input type="date" id="expenseDate" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expenseCategory">Category</label>
+                            <select id="expenseCategory" name="category" required>
+                                <option value="">Select a category</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Add Expense</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Budget Section -->
+            <section id="budget-section" class="content-section">
+                <h2>Budget Management</h2>
+                <div class="card">
+                    <h3>Set Monthly Budget</h3>
+                    <form id="budgetForm" class="form">
+                        <div class="form-group">
+                            <label for="budgetMonth">Month</label>
+                            <input type="month" id="budgetMonth" name="month" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budgetAmount">Budget Amount</label>
+                            <input type="number" id="budgetAmount" name="amount" required placeholder="0.00" step="0.01" min="0">
+                        </div>
+
+                        <button type="submit" class="btn-primary">Set Budget</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3>Current Budget</h3>
+                    <div id="currentBudget" class="budget-display"></div>
+                </div>
+            </section>
+
+            <!-- Expenses List Section -->
+            <section id="list-section" class="content-section">
+                <h2>Your Expenses</h2>
+                <div class="card">
+                    <div class="filter-section">
+                        <label for="filterMonth">Filter by Month:</label>
+                        <input type="month" id="filterMonth" name="filterMonth">
+                        <button id="filterBtn" class="btn-secondary">Filter</button>
+                        <button id="clearFilterBtn" class="btn-secondary">Clear Filter</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div id="expensesList" class="expenses-table-container"></div>
+                </div>
+            </section>
+
+            <!-- Monthly Summary Section -->
+            <section id="summary-section" class="content-section">
+                <h2>Monthly Summary</h2>
+                <div class="card">
+                    <form id="summaryForm" class="form">
+                        <div class="form-group">
+                            <label for="summaryMonth">Select Month</label>
+                            <input type="month" id="summaryMonth" name="month" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Get Summary</button>
+                    </form>
+                </div>
+
+                <div id="summaryDisplay" class="summary-display"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="/dashboard.js"></script>
+</body>
+</html>
